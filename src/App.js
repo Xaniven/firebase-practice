@@ -4,7 +4,7 @@ import Login from "./components/login";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/navBar";
 
-import { auth } from "./components/firebase";
+import { auth } from "./components/firebase ";
 
 const user = auth.currentUser;
 function App() {
