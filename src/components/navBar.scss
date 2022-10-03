@@ -1,0 +1,21 @@
+#navMain {
+  border: 2px solid rgba(255, 255, 255, 0.504);
+  border-radius: 5px;
+  opacity: 0.5;
+  width: 95%;
+}
+.logSec {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+}
+.navWrap {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+.navlink {
+  color: black;
+}
