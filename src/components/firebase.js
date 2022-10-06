@@ -2,8 +2,6 @@
 import { initializeApp } from "firebase/app";
 import "firebase/auth";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { useAuthState } from "react-firebase-hooks/auth";
-import CreateAccount from "./createAcc";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

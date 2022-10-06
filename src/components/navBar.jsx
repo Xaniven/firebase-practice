@@ -8,6 +8,7 @@ import { auth } from "./firebase";
 
 function NavBar() {
   const [user] = useAuthState(auth);
+  const cu = auth.currentUser;
   return (
     <>
       <div className='navWrap mb-4'>
@@ -26,10 +27,10 @@ function NavBar() {
               <Nav>
                 <div className='logSec justify-content-center'>
                   <Nav.Link as={Link} to='/login'>
-                    {user ? "Log-out" : "Log-in"}
+                    {cu == null ? "Log-in" : ""}
                   </Nav.Link>
                   <Nav.Link as={Link} to={user != null ? "/signOut" : "/newUser"}>
-                    {user ? "" : "Create Account"}
+                    {cu == null ? "Create Account" : "Log-out"}
                   </Nav.Link>
                 </div>
               </Nav>
