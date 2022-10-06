@@ -29,7 +29,7 @@ function NavBar() {
                   <Nav.Link as={Link} to='/login'>
                     {cu == null ? "Log-in" : ""}
                   </Nav.Link>
-                  <Nav.Link as={Link} to={user != null ? "/signOut" : "/newUser"}>
+                  <Nav.Link as={Link} to={user != null ? "/LogOut" : "/newUser"}>
                     {cu == null ? "Create Account" : "Log-out"}
                   </Nav.Link>
                 </div>
