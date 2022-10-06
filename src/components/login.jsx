@@ -11,7 +11,7 @@ function Login() {
   return (
     <div className='logWrap'>
       <div className='logBox p-4'>
-        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value)}>
+        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value).preventDefault}>
           <h1>Sign-in</h1>
           <Form.Group className=' mb-3' controlId='formBasicEmail'>
             <Form.Label>Email address:</Form.Label>
