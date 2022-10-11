@@ -1,17 +1,19 @@
 import { useRef } from "react";
-import { login } from "./firebase";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import "./login.scss";
 
+const auth = getAuth();
 function Login() {
   const emailRef = useRef();
   const passRef = useRef();
+
   return (
     <div className='logWrap'>
       <div className='logBox p-4'>
-        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value).preventDefault}>
+        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value)}>
           <h1>Sign-in</h1>
           <Form.Group className=' mb-3' controlId='formBasicEmail'>
             <Form.Label>Email address:</Form.Label>
@@ -35,5 +37,17 @@ function Login() {
       </div>
     </div>
   );
+}
+
+async function login(email, password) {
+  await signInWithEmailAndPassword(auth, email, password)
+    .preventDefault.then((userCredential) => {
+      // Signed in
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
 }
 export default Login;
