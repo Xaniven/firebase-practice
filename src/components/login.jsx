@@ -42,12 +42,10 @@ function Login() {
 async function login(email, password) {
   await signInWithEmailAndPassword(auth, email, password)
     .preventDefault.then((userCredential) => {
-      // Signed in
-      // ...
+      const user = userCredential;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
 }
-export default Login;
