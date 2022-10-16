@@ -1,11 +1,13 @@
 import { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import signup from "./firebase";
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
 
 function CreateAccount() {
+  // pulls e-mail & password from form
   const emailRef = useRef();
   const passRef = useRef();
 
@@ -44,6 +46,17 @@ function CreateAccount() {
       </div>
     </div>
   );
+}
+async function signup(email, password) {
+  await createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      signInWithEmailAndPassword(auth, email, password).then(<Navigate to='/Account' />);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
 }
 
 export default CreateAccount;

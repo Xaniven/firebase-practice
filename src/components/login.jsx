@@ -1,19 +1,20 @@
 import { useRef } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import "./login.scss";
 
 const auth = getAuth();
-function Login() {
+
+export default function Login() {
   const emailRef = useRef();
   const passRef = useRef();
 
   return (
     <div className='logWrap'>
       <div className='logBox p-4'>
-        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value)}>
+        <Form onSubmit={() => login(emailRef.current.value, passRef.current.value).preventDefault}>
           <h1>Sign-in</h1>
           <Form.Group className=' mb-3' controlId='formBasicEmail'>
             <Form.Label>Email address:</Form.Label>

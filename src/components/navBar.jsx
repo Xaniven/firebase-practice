@@ -26,8 +26,8 @@ function NavBar() {
               </Nav>
               <Nav>
                 <div className='logSec justify-content-center'>
-                  <Nav.Link as={Link} to='/login'>
-                    {cu == null ? "Log-in" : ""}
+                  <Nav.Link as={Link} to={user == null ? "/Login" : "/Account"}>
+                    {cu == null ? "Log-in" : "Account"}
                   </Nav.Link>
                   <Nav.Link as={Link} to={user != null ? "/LogOut" : "/newUser"}>
                     {cu == null ? "Create Account" : "Log-out"}
