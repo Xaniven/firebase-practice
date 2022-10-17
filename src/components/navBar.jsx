@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 
-function NavBar() {
+export default function NavBar() {
   const [user] = useAuthState(auth);
   const cu = auth.currentUser;
   return (
@@ -26,8 +26,8 @@ function NavBar() {
               </Nav>
               <Nav>
                 <div className='logSec justify-content-center'>
-                  <Nav.Link as={Link} to='/login'>
-                    {cu == null ? "Log-in" : ""}
+                  <Nav.Link as={Link} to={user == null ? "/Login" : "/Account"}>
+                    {cu == null ? "Log-in" : "Account"}
                   </Nav.Link>
                   <Nav.Link as={Link} to={user != null ? "/LogOut" : "/newUser"}>
                     {cu == null ? "Create Account" : "Log-out"}
@@ -41,4 +41,3 @@ function NavBar() {
     </>
   );
 }
-export default NavBar;

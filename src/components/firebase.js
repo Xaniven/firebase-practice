@@ -20,19 +20,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
-export default async function signup(email, password) {
-  await createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-    });
-}
-
 // export async function login(email, password) {
 //   await signInWithEmailAndPassword(auth, email, password)
 //     .then((userCredential) => {
