@@ -6,7 +6,7 @@ import { Link, Navigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 
-function CreateAccount() {
+export default function CreateAccount() {
   // pulls e-mail & password from form
   const emailRef = useRef();
   const passRef = useRef();
@@ -50,7 +50,7 @@ function CreateAccount() {
 async function signup(email, password) {
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      signInWithEmailAndPassword(auth, email, password).then(<Navigate to='/Account' />);
+      signInWithEmailAndPassword(auth, email, password).then();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -58,5 +58,3 @@ async function signup(email, password) {
       // ..
     });
 }
-
-export default CreateAccount;

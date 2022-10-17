@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import "./account.scss";
+import { Navigate } from "react-router-dom";
 
 // Account pages
 export default function Account() {
@@ -14,10 +15,5 @@ export default function Account() {
         <p>Email: {user.email}</p>
       </div>
     );
-  if (user == null)
-    return (
-      <>
-        <h1>No User Logged-</h1>
-      </>
-    );
+  if (user == null) return <Navigate to='/Login' />;
 }

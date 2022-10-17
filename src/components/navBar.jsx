@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 
-function NavBar() {
+export default function NavBar() {
   const [user] = useAuthState(auth);
   const cu = auth.currentUser;
   return (
@@ -41,4 +41,3 @@ function NavBar() {
     </>
   );
 }
-export default NavBar;
