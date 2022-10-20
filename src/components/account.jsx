@@ -10,7 +10,7 @@ import { updateProfile } from "firebase/auth";
 
 export default function Account() {
   async function update(auth, userRef) {
-    updateProfile(auth.currentUser, {
+    await updateProfile(auth.currentUser, {
       displayName: userRef.current.value,
     })
       .preventDefault.then(() => {
