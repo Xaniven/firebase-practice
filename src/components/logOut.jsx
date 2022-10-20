@@ -1,7 +1,7 @@
-import { signOut } from 'firebase/auth';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from './firebase';
+import { useEffect } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function LogOut() {
   //log out user
@@ -11,11 +11,11 @@ export default function LogOut() {
   const navi = useNavigate();
   useEffect(() => {
     setTimeout(() => {
-      navi('/');
+      navi("/");
     }, 2500);
   }, []);
   return (
-    <div className="d-flex justify-content-center allign-items-center">
+    <div className='d-flex justify-content-center allign-items-center'>
       <h1> See ya! </h1>
     </div>
   );
