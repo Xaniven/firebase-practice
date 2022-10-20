@@ -51,7 +51,7 @@ export default function Login() {
 //function to handle log in w/ e-mail & password
 async function login(email, password) {
   await signInWithEmailAndPassword(auth, email, password)
-    .preventDefault.then((userCredential) => {})
+    .then((userCredential) => {})
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;

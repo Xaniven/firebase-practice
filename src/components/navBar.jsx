@@ -18,7 +18,7 @@ export default function NavBar() {
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='logWrap me-auto'>
-                <Nav.Link as={Link} to='/account'>
+                <Nav.Link as={Link} to='/'>
                   Home
                 </Nav.Link>
                 <Nav.Link href='#about'>About</Nav.Link>
