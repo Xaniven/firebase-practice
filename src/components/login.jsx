@@ -18,7 +18,10 @@ export default function Login() {
       <div className='logWrap'>
         <div className='logBox p-4'>
           <Form
-            onSubmit={() => login(emailRef.current.value, passRef.current.value).preventDefault}
+            onSubmit={(e) => {
+              e.preventDefault();
+              login(emailRef.current.value, passRef.current.value);
+            }}
           >
             <h1>Sign-in</h1>
             <Form.Group className=' mb-3' controlId='formBasicEmail'>
@@ -51,7 +54,7 @@ export default function Login() {
 //function to handle log in w/ e-mail & password
 async function login(email, password) {
   await signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {})
+    .preventDefault.then((userCredential) => {})
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;

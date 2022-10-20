@@ -40,7 +40,10 @@ export default function Account() {
           <Form.Group
             className=' mb-3'
             controlId='userNameChange'
-            onSubmit={() => update(auth.currentUser, userRef.current.value)}
+            onSubmit={(e) => {
+              e.preventDefault();
+              update(auth.currentUser, userRef.current.value);
+            }}
           >
             <Form.Label>
               Current Username:{" "}
