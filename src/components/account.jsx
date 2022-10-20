@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
 import "./account.scss";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { updateProfile } from "firebase/auth";
 
@@ -13,7 +13,7 @@ export default function Account() {
     await updateProfile(auth.currentUser, {
       displayName: userRef.current.value,
     })
-      .preventDefault.then(() => {
+      .then(() => {
         // ...
       })
       .catch((error) => {
@@ -21,7 +21,7 @@ export default function Account() {
         // ...
       });
   }
-
+  const navigate = useNavigate();
   const userRef = useRef();
   const [user] = useAuthState(auth);
 
@@ -59,7 +59,7 @@ export default function Account() {
       </div>
     );
   }
-  if (user === null) return <Navigate to='/Login' />;
+  if (user === null) return navigate("/Login");
 }
 
 // if (user != null)
