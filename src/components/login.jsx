@@ -5,8 +5,8 @@ import { Link, Navigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./login.scss";
+import { auth } from "./firebase";
 
-const auth = getAuth();
 //Login component
 export default function Login() {
   const emailRef = useRef();
@@ -54,7 +54,9 @@ export default function Login() {
 //function to handle log in w/ e-mail & password
 async function login(email, password) {
   await signInWithEmailAndPassword(auth, email, password)
-    .preventDefault.then((userCredential) => {})
+    .then((userCredential) => {
+      const user = userCredential.user;
+    })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;

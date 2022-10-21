@@ -1,55 +1,33 @@
 import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./firebase";
+
 import "./account.scss";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
-import { updateProfile } from "firebase/auth";
+import { updateProfile, getAuth } from "firebase/auth";
 
 // Account pages
-
+const auth = getAuth();
 export default function Account() {
-  async function update(auth, userRef) {
-    await updateProfile(auth.currentUser, {
-      displayName: userRef.current.value,
-    })
-      .then(() => {
-        // ...
-      })
-      .catch((error) => {
-        // An error occurred
-        // ...
-      });
-  }
   const navigate = useNavigate();
   const userRef = useRef();
   const [user] = useAuthState(auth);
-
   if (user !== null) {
-    user.providerData.forEach((profile) => {
-      console.log("Sign-in provider: " + profile.providerId);
-      console.log("  Provider-specific UID: " + profile.uid);
-      console.log("  Name: " + profile.displayName);
-      console.log("  Email: " + profile.email);
-      console.log("  Photo URL: " + profile.photoURL);
-    });
-
     return (
       <div className='accountWrap container-fluid'>
         <Form>
           <Form.Group
-            className=' mb-3'
-            controlId='userNameChange'
             onSubmit={(e) => {
               e.preventDefault();
-              update(auth.currentUser, userRef.current.value);
+              updateProfile();
             }}
+            className='mb-3'
+            controlId='userNameChange'
           >
             <Form.Label>
-              Current Username:{" "}
-              {user.displayName == null ? "No username set" : user.providerId.displayName}
+              Current Username: {user.displayName == null ? "No username set" : user.displayName}
             </Form.Label>
-            <Form.Control ref={userRef} type='text' placeholder='Enter new username' required />
+            <Form.Control ref={userRef} type='text' placeholder='Enter new username' />
             <Form.Text className='text-muted'>Enter a new username</Form.Text>
             <Button type='submit' className='m-2'>
               Save
@@ -60,6 +38,18 @@ export default function Account() {
     );
   }
   if (user === null) return navigate("/Login");
+  updateProfile(user.currentUser, {
+    displayName: "bob",
+    photoURL: "https://example.com/jane-q-user/profile.jpg",
+  })
+    .then(() => {
+      // Profile updated!
+      // ...
+    })
+    .catch((error) => {
+      // An error occurred
+      // ...
+    });
 }
 
 // if (user != null)

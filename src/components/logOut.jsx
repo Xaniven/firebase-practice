@@ -12,7 +12,7 @@ export default function LogOut() {
   useEffect(() => {
     setTimeout(() => {
       navi("/");
-    }, 2500);
+    }, 800);
   }, []);
   return (
     <div className='d-flex justify-content-center allign-items-center'>

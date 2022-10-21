@@ -18,7 +18,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/newuser' element={<CreateAccount />} />
           <Route path='/LogOut' element={<LogOut />} />
-          <Route path='/account' element={<Account />} />
+          <Route path='/Account' element={<Account />} />
         </Routes>
       </div>
     </>
