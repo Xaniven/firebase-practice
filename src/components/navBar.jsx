@@ -14,7 +14,7 @@ export default function NavBar() {
       <div className='navWrap mb-4'>
         <Navbar id='navMain' bg='primary' variant='dark' expand='lg'>
           <Container>
-            <Navbar.Brand href='/'>SpotBloc</Navbar.Brand>
+            <Navbar.Brand href='/'>Re:Natured CBD</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='logWrap me-auto'>
@@ -22,7 +22,7 @@ export default function NavBar() {
                   Home
                 </Nav.Link>
                 <Nav.Link href='#about'>About</Nav.Link>
-                <Nav.Link href='#link'>Mint</Nav.Link>
+                <Nav.Link href='#link'>Products</Nav.Link>
               </Nav>
               <Nav>
                 <div className='logSec justify-content-center'>
