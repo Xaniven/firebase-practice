@@ -5,12 +5,13 @@ import { Button, Form } from "react-bootstrap";
 import { updateProfile, getAuth } from "firebase/auth";
 
 // Account pages
-const auth = getAuth();
+
 export default function Account() {
   const navigate = useNavigate();
   const userRef = useRef();
   const auth = getAuth();
   const user = auth.currentUser;
+
   if (user !== null) {
     return (
       <div className='accountWrap container-fluid'>
