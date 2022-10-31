@@ -1,0 +1,16 @@
+#card {
+  width: 18rem;
+  padding: 2px;
+  padding-bottom: 5px;
+  border: 1px solid black;
+  border-radius: 3%;
+
+  #cardImg {
+    border-radius: 3%;
+  }
+
+  Button {
+    width: 90%;
+    transform: translateX(5%);
+  }
+}
