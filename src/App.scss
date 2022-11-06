@@ -18,5 +18,11 @@ $primary: #000;
     #46eefa,
     #5ffbf1
   );
-  height: 200vh;
+  min-height: 100vh;
+  min-width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

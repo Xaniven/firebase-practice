@@ -6,24 +6,24 @@ import NavBar from "./components/navBar";
 import LogOut from "./components/logOut";
 import Account from "./components/account";
 import { auth } from "./components/firebase";
-
 import Products from "./pages/products";
+import Hero from "./pages/hero";
 
+//TODO Hero, about
 const user = auth.currentUser;
 function App() {
   return (
-    <>
-      <div className='App'>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Products />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/newuser' element={<CreateAccount />} />
-          <Route path='/LogOut' element={<LogOut />} />
-          <Route path='/Account' element={<Account />} />
-        </Routes>
-      </div>
-    </>
+    <div className='App' fluid>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Hero />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/newuser' element={<CreateAccount />} />
+        <Route path='/LogOut' element={<LogOut />} />
+        <Route path='/Account' element={<Account />} />
+        <Route path='/Products' element={<Products />} />
+      </Routes>
+    </div>
   );
 }
 
