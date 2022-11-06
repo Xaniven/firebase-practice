@@ -22,7 +22,9 @@ export default function NavBar() {
                   Home
                 </Nav.Link>
                 <Nav.Link href='#about'>About</Nav.Link>
-                <Nav.Link href='#link'>Products</Nav.Link>
+                <Nav.Link as={Link} to='/Products'>
+                  Products
+                </Nav.Link>
               </Nav>
               <Nav>
                 <div className='logSec justify-content-center'>
