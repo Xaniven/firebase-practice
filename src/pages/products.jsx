@@ -8,12 +8,13 @@ import { db } from "../components/firebase";
 import { useState, useEffect } from "react";
 
 export default function Products() {
+  // holds array of 'item' from getItems()
   const [its, setIts] = useState([]);
 
   useEffect(() => {
     getItems();
   }, []);
-
+  //sets state of its to array of 'item' from "Itms" firestore collection
   function getItems() {
     const itemRef = collection(db, "Itms");
     getDocs(itemRef)
@@ -24,13 +25,12 @@ export default function Products() {
       .catch();
   }
   // return each item in collection as individual "Item" components
-  // TODO add grid layout
   return (
     <Container fluid>
       <div className='prodWrap'>
         <h1 className='mb-5'> Products:</h1>
         <div className='prodCard'>
-          <Row xs={1} sm={2} lg={3}>
+          <Row xs={1} sm={2} lg={3} xl={4}>
             {its.map((Itms) => (
               <Col className='mb-4'>
                 <Items

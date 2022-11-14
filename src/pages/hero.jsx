@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import Carousel from "react-bootstrap/Carousel";
 
 export default function Hero() {
   return (
-    <>
+    <motion.div transition={{ delay: 0.3 }} initial={{ opacity: -1 }} whileInView={{ opacity: 1 }}>
       <Carousel>
         <Carousel.Item>
           <img className='d-block w-100' src='https://picsum.photos/1080/300' alt='First slide' />
@@ -49,6 +50,6 @@ export default function Hero() {
       <br></br>
       <br></br>
       <br></br>
-    </>
+    </motion.div>
   );
 }
