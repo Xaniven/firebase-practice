@@ -8,8 +8,10 @@ import { db } from "../components/firebase";
 import { useState, useEffect } from "react";
 
 export default function Products() {
+  const [cart, setCart] = useState([]);
   // holds array of 'item' from getItems()
   const [its, setIts] = useState([]);
+  console.log(its);
 
   useEffect(() => {
     getItems();
@@ -19,14 +21,24 @@ export default function Products() {
     const itemRef = collection(db, "Itms");
     getDocs(itemRef)
       .then((response) => {
-        const i = response.docs.map((doc) => ({ data: doc.data(), id: doc.id }));
+        const i = response.docs.map((doc) => ({
+          data: doc.data(),
+          id: doc.id,
+          key: doc.data().itemKey,
+        }));
         setIts(i);
       })
       .catch();
   }
+
+  // handle add to cart
+  // function handleClick(id) {
+  //   setCart(its[id]);
+  //   console.log(cart);
+  // }
   // return each item in collection as individual "Item" components
   return (
-    <Container fluid>
+    <Container>
       <div className='prodWrap'>
         <h1 className='mb-5'> Products:</h1>
         <div className='prodCard'>
@@ -37,6 +49,7 @@ export default function Products() {
                   title={Itms.data.title}
                   price={Itms.data.price}
                   prodDescrip={Itms.data.prodDescrip}
+                  key={Itms.key}
                 />
               </Col>
             ))}
