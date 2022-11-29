@@ -17,7 +17,7 @@ function App() {
     <div className='App' fluid>
       <NavBar />
       <Routes>
-        <Route path='/' element={<Hero />} />
+        <Route path='' element={<Hero />} />
         <Route path='/login' element={<Login />} />
         <Route path='/newuser' element={<CreateAccount />} />
         <Route path='/LogOut' element={<LogOut />} />
