@@ -8,6 +8,7 @@ import Account from "./components/account";
 import { auth } from "./components/firebase";
 import Products from "./pages/products";
 import Hero from "./pages/hero";
+import Footer from "./components/footer";
 
 //TODO Hero, about
 const user = auth.currentUser;
@@ -23,6 +24,7 @@ function App() {
         <Route path='/Account' element={<Account />} />
         <Route path='/Products' element={<Products />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

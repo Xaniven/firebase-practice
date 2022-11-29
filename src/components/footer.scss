@@ -1,0 +1,16 @@
+.buttonWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 10vh;
+  max-height: fit-content;
+  background-color: black;
+  color: aliceblue;
+}

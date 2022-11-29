@@ -5,12 +5,16 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase";
+import img1 from "../img/116.PNG";
 
 export default function NavBar() {
   const [user] = useAuthState(auth);
   const cu = auth.currentUser;
   return (
     <>
+      <div className='imgWrap'>
+        <img id='topImg' src={img1} />
+      </div>
       <div className='navWrap mb-4'>
         <Navbar id='navMain' bg='primary' variant='dark' expand='lg'>
           <Container>

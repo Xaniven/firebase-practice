@@ -20,3 +20,13 @@
 .navlink {
   color: black;
 }
+#topImg {
+  padding: 0;
+  margin-bottom: -50px;
+  max-height: 30vh;
+}
+.imgWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
