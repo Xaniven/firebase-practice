@@ -31,25 +31,27 @@ export default function Products() {
       .catch();
   }
 
-  // handle add to cart
-  // function handleClick(id) {
-  //   setCart(its[id]);
-  //   console.log(cart);
-  // }
+  //handle add to cart
+  function handleATC(Itm) {
+    setCart([...cart, Itm.title, Itm.price, Itm.id]);
+    console.log(cart);
+  }
   // return each item in collection as individual "Item" components
   return (
     <Container>
       <div className='prodWrap'>
-        <h1 className='mb-5'> Products:</h1>
+        <h1 className='mb-5 mt-5'> Products:</h1>
         <div className='prodCard'>
           <Row xs={1} sm={2} lg={3} xl={4}>
             {its.map((Itms) => (
               <Col className='mb-4'>
                 <Items
+                  iOb={Itms.data}
                   title={Itms.data.title}
                   price={Itms.data.price}
                   prodDescrip={Itms.data.prodDescrip}
-                  key={Itms.key}
+                  key={Itms.data.id}
+                  handleATC={() => handleATC(Itms.data)}
                 />
               </Col>
             ))}

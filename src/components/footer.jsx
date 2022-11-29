@@ -6,7 +6,7 @@ import "./footer.scss";
 export default function Footer() {
   return (
     <>
-      <div className='foot container-fluid p-2'>
+      <div className='foot container-fluid p-2 mt-5'>
         <motion.div
           whileHover={{ scale: 1.3 }}
           initial={{ opacity: -1 }}
